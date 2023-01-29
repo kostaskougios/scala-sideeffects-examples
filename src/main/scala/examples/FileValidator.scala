@@ -1,11 +1,11 @@
 package examples
 
-import sideeffects.console.{PrintLnLib, StdPrintLnLib}
-import sideeffects.files.{InputStreamIO, StdFileInputStreamFactory}
 import org.apache.commons.io.IOUtils
+import sideeffects.console.{PrintLnLib, StdPrintLnLib}
+import sideeffects.files.{InputStreamIO, StdFileInputStreamLib}
 
 @main def fileValidator(name: String) =
-  class ProdEffects extends StdPrintLnLib with StdFileInputStreamFactory
+  class ProdEffects extends StdPrintLnLib with StdFileInputStreamLib
   new ProdEffects:
     printProcessedFile(fileInputStream(name))
 

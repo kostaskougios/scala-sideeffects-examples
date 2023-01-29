@@ -1,15 +1,15 @@
 package examples
 
 import sideeffects.console
-import sideeffects.console.{PrintLnLib, ReadLine, StdPrintLnLib, StdReadLine}
+import sideeffects.console.{PrintLnLib, ReadLineLib, StdPrintLnLib, StdReadLineLib}
 import sideeffects.util.{RandomLib, StdRandomLib}
 
 @main def guessNumberApp() =
 
-  val lib = new StdPrintLnLib with StdReadLine with StdRandomLib
+  val lib = new StdPrintLnLib with StdReadLineLib with StdRandomLib
   new GuessNumber(lib).runApp()
 
-type GuessNumberLib = PrintLnLib with ReadLine with RandomLib
+type GuessNumberLib = PrintLnLib with ReadLineLib with RandomLib
 
 class GuessNumber(lib: GuessNumberLib):
   import lib.*

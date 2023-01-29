@@ -1,11 +1,11 @@
 package sideeffects.console
 
-import sideeffects.{SideEffectResult, RunnableSideEffect}
+import sideeffects.{RunnableSideEffect, SideEffectResult}
 
 import scala.io.StdIn
 
-trait ReadLine:
+trait ReadLineLib:
   def readLine(): String
 
-trait StdReadLine extends ReadLine:
+trait StdReadLineLib extends ReadLineLib:
   override def readLine(): String = StdIn.readLine()
