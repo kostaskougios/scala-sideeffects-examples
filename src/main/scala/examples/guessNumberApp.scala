@@ -5,7 +5,6 @@ import sideeffects.console.{PrintLnLib, ReadLineLib, StdPrintLnLib, StdReadLineL
 import sideeffects.util.{RandomLib, StdRandomLib}
 
 @main def guessNumberApp() =
-
   val lib = new StdPrintLnLib with StdReadLineLib with StdRandomLib
   new GuessNumber(lib).runApp()
 
@@ -13,7 +12,7 @@ type GuessNumberLib = PrintLnLib with ReadLineLib with RandomLib
 
 class GuessNumber(lib: GuessNumberLib):
   import lib.*
-  def runApp(): Unit = runApp(Random.nextInt(100))
+  def runApp(): Unit = runApp(Random.nextInt(100)) // this uses lib.Random
 
   private def runApp(r: Int): Unit =
     println("Please guess a number between 1 and 100")

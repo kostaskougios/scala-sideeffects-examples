@@ -1,7 +1,6 @@
 package sideeffects.files
 
 import sideeffects.closables.{Closable, Close}
-import sideeffects.{SideEffect, SideEffectResult}
 
 import java.io.{FileInputStream, InputStream}
 import scala.io.Source

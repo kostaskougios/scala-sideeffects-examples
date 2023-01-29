@@ -1,7 +1,5 @@
 package sideeffects.console
 
-import sideeffects.{RunnableSideEffect, SideEffectResult}
-
 import scala.io.StdIn
 
 trait ReadLineLib:

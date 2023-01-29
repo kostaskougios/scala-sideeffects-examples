@@ -1,7 +1,5 @@
 package sideeffects.console
 
-import sideeffects.{SideEffect, RunnableSideEffect}
-
 trait PrintLnLib:
   def println(x: Any): Unit
 
