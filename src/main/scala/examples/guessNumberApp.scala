@@ -24,6 +24,6 @@ class GuessNumber(lib: GuessNumberLib):
         if n != r then runApp(r)
 
   private def checkNumber(r: Int, n: Int) =
-    if n == r then "Found it!"
+    if n == r then "You found it!"
     else if n > r then s"the number is smaller than $n"
     else s"the number is greater than $n"
