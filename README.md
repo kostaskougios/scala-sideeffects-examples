@@ -15,8 +15,8 @@ So lets see our hello world app:
 
 This code is simple but writing a test for it is a nightmare. We may be able to redirect the console to a file 
 or output stream, but overall not something we want to do. Especially when an app grows, it will be a nightmare
-to write and maintain the testcase. Later on we'll see an app that reads from stdin, so things would get out
-of hand pretty quickly.
+to write and maintain the testcase. Later on we'll see the guess-a-number app that reads from stdin and prints, 
+so things would get out of hand pretty quickly when it comes to testing and the hardcoded println and readln methods.
 
 In my opinion the problem with side effects is not how to make them functional but how to make them easily
 testable. I.e. wrapping the above code in an `IO { println (...) }` doesn't help in terms of code. We may
@@ -30,8 +30,8 @@ So lets go make our code testable. Testing side effects IMO is a matter of depen
 anything else. In the println example we are limited by the fact that println is a hardcoded method we have
 no control over. To gain control we will put it in a trait and make it injectable so that we can inject
 the println we want in prod code (which will just print to the console) or the println we want in the
-tests (which will allow us to assert). Assuming we have a lib that already tested that the injectable println
-works as expected, then we won't have to bother with streams, console etc when testing. Lets see it in action:
+tests (which will allow us to assert). Assuming we have a lib that is already tested and that the injectable println
+works as expected, then we won't have to bother with streams, console etc when testing. Let's see it in action:
 
 ```scala
 trait PrintLnLib:
@@ -64,9 +64,9 @@ the original hello-world, stacktraces will be straight forward etc. The overhead
 for real life applications.
 
 The big benefit? It is easy to test and we can write complete tests (tests that test every bit of our app) for it. Now
-compare that to the project you work on a daily basis!
+compare that to the project you work daily!
 
-Now it is time to test it. First lets create a lib we can use for tests:
+It is time to test it. First lets create a lib we can use for tests:
 
 ```scala
 trait InMemoryPrintLnLib extends PrintLnLib:
