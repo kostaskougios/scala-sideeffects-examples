@@ -131,7 +131,7 @@ class GuessNumber:
     else s"the number is greater than $n"
 ```
 
-Testing that will be a nightmare! But lets apply the same methodology. Lets create libs for all side effects. We already
+Testing that as is will be a nightmare! But lets apply the same methodology. Lets create libs for all side effects. We already
 have the lib for println, we need a lib for Random and one for reading from stdin.
 
 ReadLineLib:
