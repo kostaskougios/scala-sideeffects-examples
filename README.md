@@ -161,7 +161,7 @@ trait StdRandomLib extends RandomLib:
 private class StdScalaRandom extends Random with ScalaRandom
 ```
 
-### guess-the-number testable this time
+### guess-the-number, testable this time
 So now we can write our code which will be easily testable. Actually the code is almost exactly the same as before.
 I've included the `main()` method to demonstrate how to create the lib. But `GuessNumber` class is almost identical
 as before.
