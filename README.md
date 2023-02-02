@@ -247,3 +247,4 @@ Full code is in this repo for all the examples above.
 In the future we will see how we can work with:
 - Side effects that have temporary lifecycle like InputStreams where we need to open/close it multiple times during the lifetime of our app.
 - Side effects that have app-wide lifecycle like database connections
+- Side effect code that chains calls between multiple classes like HttpClient -> Connection -> HttpRequest or Pool -> Connection -> Statement 
