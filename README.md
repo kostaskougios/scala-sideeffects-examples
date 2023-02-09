@@ -16,7 +16,7 @@ So lets see our hello world app:
 @main def veryHardToTestHelloWorld() = println("Hello World!") // now try to write a test for this!
 ```
 
-This code is simple but writing a test for it is a nightmare. We may be able to redirect the console to a file 
+This code is simple but writing a test for it is very hard. We may be able to redirect the console to a file 
 or output stream, but overall not something we want to do. Especially when an app grows, it will be a nightmare
 to write and maintain the testcase. Later on we'll see the guess-a-number app that reads from stdin and prints, 
 so things would get out of hand pretty quickly when it comes to testing and the hardcoded println and readln methods.
