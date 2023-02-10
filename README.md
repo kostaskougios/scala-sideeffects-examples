@@ -24,6 +24,8 @@ so things would get out of hand pretty quickly when it comes to testing and the 
 ### Why is it untestable?
 
 It is untestable because we are not in control of println. It is hardcoded to write to the console and that can hardly change.
+(the Scala println can be redirected to a different PrintStream which makes it easier to test, but System.out.println is
+fairly untestable)
 In my opinion the problem with side effects is not how to make them functional but how to gain control of what
 they do. I.e. wrapping the above code in an `IO { println (...) }` doesn't help in terms of testing. We may
 have a pure function but the result is not something we can use straight away other than running it. And then
