@@ -7,6 +7,8 @@ import sideeffects.util.{RandomLib, StdRandomLib}
 import java.io.{File, FileOutputStream, OutputStream}
 import scala.annotation.tailrec
 
+/** Warning: don't run this multiple times on SSD disks, it will sorted the lifespan of the disk.
+  */
 @main
 def securelyEraseDisk() =
   val lib = new StdFileOutputStreamLib with StdPrintLnLib with StdRandomLib
