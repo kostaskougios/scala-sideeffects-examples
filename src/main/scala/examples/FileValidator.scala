@@ -5,8 +5,8 @@ import sideeffects.console.{PrintLnLib, StdPrintLnLib}
 import sideeffects.files.{InputStreamIO, StdFileInputStreamLib}
 
 @main def fileValidator(name: String) =
-  class ProdEffects extends StdPrintLnLib with StdFileInputStreamLib
-  new ProdEffects:
+  class ProdLib extends StdPrintLnLib with StdFileInputStreamLib
+  new ProdLib:
     printProcessedFile(fileInputStream(name))
 
     def printProcessedFile(loader: InputStreamIO) =
