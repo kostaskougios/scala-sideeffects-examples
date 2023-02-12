@@ -180,8 +180,8 @@ class GuessNumber(lib: GuessNumberLib):
   def runApp(): Unit = runApp(Random.nextInt(100)) // this uses lib.Random
 
   private def runApp(r: Int): Unit =
-    println("Please guess a number between 1 and 100")
-    readLine() match
+    println("Please guess a number between 1 and 100") // this is lib.println
+    readLine() match // and lib.readLine()
       case "exit" =>
       case s =>
         val n = s.toInt
@@ -245,6 +245,11 @@ class GuessNumberTest extends AnyFunSuiteLike:
 
 We took untestable code with side effects and managed to keep the code as simple as it was but made it testable.
 Full code is in this repo for all the examples above.
+
+So far we worked with:
+- methods that have side effects and return `Unit` like `println`
+- methods that have side effects and return a value like `readLine`
+- methods that are not pure functions like `Random.nextInt`
 
 In the future we will see how we can work with:
 - Side effects that have temporary lifecycle like InputStreams where we need to open/close it multiple times during the lifetime of our app.
