@@ -74,7 +74,7 @@ the original hello-world, stacktraces will be straight forward etc. The overhead
 for real life applications where the bulk of the code will be implementing logic.
 
 The big benefit? It is easy to test and we can write complete tests (tests that test every bit of our app) for it. Now
-compare that to that project at work!
+compare this to that project at work!
 
 ### The test
 
