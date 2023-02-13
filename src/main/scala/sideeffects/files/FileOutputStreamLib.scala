@@ -3,6 +3,7 @@ package sideeffects.files
 import java.io.{FileInputStream, FileOutputStream}
 
 trait FileOutputStreamLib:
+  def fileOutputStream(file: File): OutputStreamIO = fileOutputStream(file.getAbsolutePath)
   def fileOutputStream(fileName: String): OutputStreamIO
 
 trait StdFileOutputStreamLib extends FileOutputStreamLib:
