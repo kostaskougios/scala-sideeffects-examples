@@ -2,17 +2,13 @@ package sideeffects.closables
 
 import java.io.InputStream
 
-trait Closable[A: Close]:
-  protected def allocateResource: A
-  def foreach(f: A => Unit): Unit =
-    val r = allocateResource
+trait Closable[C](allocateResource: () => C, close: C => Unit):
+  def foreach(f: C => Unit): Unit =
+    val r = allocateResource()
     try f(r)
-    finally summon[Close[A]].close(r)
+    finally close(r)
 
-  def map[R](f: A => R): R =
-    val r = allocateResource
+  def map[R](f: C => R): R =
+    val r = allocateResource()
     try f(r)
-    finally summon[Close[A]].close(r)
-
-trait Close[A]:
-  def close(a: A): Unit
+    finally close(r)

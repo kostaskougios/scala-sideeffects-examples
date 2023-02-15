@@ -1,11 +1,7 @@
 package sideeffects.files
 
-import sideeffects.closables.{Closable, Close}
+import sideeffects.closables.Closable
 
 import java.io.{InputStream, OutputStream}
 
-class OutputStreamIO private[files] (outputStream: => OutputStream) extends Closable[OutputStream]:
-  override protected def allocateResource = outputStream
-
-given Close[OutputStream] with
-  override def close(o: OutputStream): Unit = o.close()
+class OutputStreamIO private[files] (outputStreamCreator: () => OutputStream) extends Closable(outputStreamCreator, _.close())
