@@ -5,7 +5,9 @@ import sideeffects.closables.{Closable, Close}
 import java.io.{FileInputStream, InputStream}
 import scala.io.Source
 
-class InputStreamIO private[files] (inputStream: InputStream) extends Closable(inputStream):
+class InputStreamIO private[files] (inputStream: => InputStream) extends Closable[InputStream]:
+
+  override protected def allocateResource = inputStream
 
   def mapLines[R](f: String => R): List[R] =
     map(in => Source.fromInputStream(in, "UTF-8").getLines().map(f).toList)
