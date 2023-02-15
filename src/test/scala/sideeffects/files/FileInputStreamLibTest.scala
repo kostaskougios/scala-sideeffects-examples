@@ -9,9 +9,9 @@ class FileInputStreamLibTest extends AnyFunSuiteLike:
   test("for loop") {
     new App("file1" -> "Hello", "file2" -> "World"):
       val r = for {
-        f1 <- fileInputStream("file1")
-        f2 <- fileInputStream("file2")
-      } yield IOUtils.toString(f1) + " " + IOUtils.toString(f2)
+        in1 <- fileInputStream("file1")
+        in2 <- fileInputStream("file2")
+      } yield IOUtils.toString(in1) + " " + IOUtils.toString(in2)
       r should be("Hello World")
 
     class App(fileContents: (String, String)*) extends InMemoryStringContentFileStreamLib(fileContents.toMap)
