@@ -11,8 +11,8 @@ class FileInputStreamLibTest extends AnyFunSuiteLike:
       val r = for {
         in1 <- fileInputStream("file1")
         in2 <- fileInputStream("file2")
-      } yield (in1, in2)
-      r should be("Hello World")
+      } yield IOUtils.toString(in1) + "/" + IOUtils.toString(in2)
+      r should be("Hello/World")
 
     class App(fileContents: (String, String)*) extends InMemoryStringContentFileStreamLib(fileContents.toMap)
   }

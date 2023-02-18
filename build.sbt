@@ -10,5 +10,5 @@ lazy val root = project
     name := "effects",
     version := "0.1.0-SNAPSHOT",
     scalaVersion := scala3Version,
-    libraryDependencies ++= Seq(CommonsIO, ScalaTest, CatsEffects)
+    libraryDependencies ++= Seq(CommonsIO, ScalaTest)
   )
